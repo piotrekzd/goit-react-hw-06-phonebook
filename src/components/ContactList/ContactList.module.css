@@ -25,3 +25,7 @@
 .btn:hover {
     box-shadow: 5px 5px 5px rgb(85, 84, 84);
 }
+
+.paragraph {
+    margin-left: 20px;
+}

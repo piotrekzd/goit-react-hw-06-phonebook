@@ -13,15 +13,20 @@ const initialState = {
     }
 };
 
+// const filterInitialState = '';
+
 export const contactsReducer = createReducer(initialState.contacts, {
     [addContact]: (state, action) => {
         state.items.push(action.payload);
     },
     [delContact]: (state, action) => {
-        const index = state.items.findIndex(contacts => contacts.id === action.payload);
-        state.items.splice(index, 1);
+        return state.filter(contact => contact.id !== action.payload);
     },
     [setFilter]: (state, action) => {
         state.filter = action.payload;
     },
 });
+
+// export const filterReducer = createReducer(filterInitialState, {
+//     [setFilter]: (state, action) => (state = action.payload);
+// });
