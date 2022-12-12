@@ -9,11 +9,10 @@ const initialState = {
             { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
             { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
         ],
-        filter: '',
-    }
+    },
 };
 
-// const filterInitialState = '';
+const filterInitialState = '';
 
 export const contactsReducer = createReducer(initialState.contacts, {
     [addContact]: (state, action) => {
@@ -22,11 +21,8 @@ export const contactsReducer = createReducer(initialState.contacts, {
     [delContact]: (state, action) => {
         return state.filter(contact => contact.id !== action.payload);
     },
-    [setFilter]: (state, action) => {
-        state.filter = action.payload;
-    },
 });
 
-// export const filterReducer = createReducer(filterInitialState, {
-//     [setFilter]: (state, action) => (state = action.payload);
-// });
+export const filterReducer = createReducer(filterInitialState, {
+    [setFilter]: (state, action) => (state = action.payload)
+});
