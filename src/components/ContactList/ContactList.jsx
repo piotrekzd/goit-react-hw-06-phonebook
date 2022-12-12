@@ -8,7 +8,7 @@ import style from './ContactList.module.css'
 export const ContactList = () => {
 
     const contacts = useSelector(getContacts);
-    const filter = useSelector(getFilter);
+    const filter     = useSelector(getFilter);
     const dispatch = useDispatch();
 
     const filterContacts = contacts.filter(contact =>
@@ -21,22 +21,18 @@ export const ContactList = () => {
 
     return (
         <div>
-            {filterContacts > 0 ? (
                 <ul className={style.list}>
                     {filterContacts.map(contact => {
                         return (
                             <li className={style.listItem} key={contact.id}>
-                                {contact.name}: {contact.number}
+                                <p>{contact.name}: {contact.number}</p>
                                 <button className={style.btn} type="button" onClick={() => del(contact.id)}>
                                     Delete
                                 </button>
                             </li>
                         );
-                    })};
+                    })}
                 </ul>
-            ) : (
-                <p className={style.paragraph}>There are no contacts on your list yet</p>
-            )}
         </div>
     );
 };
