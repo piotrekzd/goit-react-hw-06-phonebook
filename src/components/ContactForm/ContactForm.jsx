@@ -26,7 +26,7 @@ export const ContactForm = () => {
         };
 
         contacts.forEach(contact => {
-            if (contact.name.toLowerCse() === nameLowerCase) {
+            if (contact.name.toLowerCase() === nameLowerCase) {
                 alert(`${contact.name} is already on the list`);
                 onTheList = true;
             };
@@ -41,7 +41,7 @@ export const ContactForm = () => {
 
     return (
         <form className={style.form} onSubmit={addNewContact}>
-            <label>Name</label>
+            <label htmlFor={id}>Name</label>
             <input
                 className={style.input}
                 id={id}
@@ -52,7 +52,7 @@ export const ContactForm = () => {
                 placeholder='Enter name'
                 required
             />
-            <label>Phone</label>
+            <label htmlFor={id}>Phone</label>
             <input
                 className={style.input}
                 id={id}
